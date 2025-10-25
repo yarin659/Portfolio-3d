@@ -8,8 +8,10 @@ import Work from "./screens/Work.jsx";
 import About from "./screens/About.jsx";
 import Contact from "./screens/Contact.jsx";
 import PageTransition from "./components/PageTransition.jsx";
+import DownloadCVButton from "./components/DownloadCVButton";
+import Education from "./screens/Education.jsx";
 
-const SCREENS = ["home", "work", "about", "contact"];
+const SCREENS = ["home", "work", "about", "contact", "education"];
 
 export default function App() {
   const [screen, setScreen] = useState("home");
@@ -52,6 +54,9 @@ export default function App() {
           {screen === "work" && <Work />}
           {screen === "about" && <About />}
           {screen === "contact" && <Contact />}
+          {screen === "education" && <Education />}
+
+
         </motion.main>
       </AnimatePresence>
 
@@ -60,6 +65,9 @@ export default function App() {
 
       {/* Custom cursor */}
       <Cursor />
+
+      {/* Cv button download */}
+      <DownloadCVButton />
     </div>
   );
 }

@@ -28,7 +28,7 @@ export default function Work() {
 
   return (
     <section className="work">
-      <h2>Selected Work</h2>
+      <h2>Projects</h2>
       <div className="grid">
         {projects.map((proj) => (
           <motion.div

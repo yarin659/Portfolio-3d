@@ -1,0 +1,91 @@
+.deck-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 2rem;
+}
+
+.deck-card {
+  position: relative;
+  width: 200px;
+  height: 260px;
+  border-radius: 20px;
+  border: 1px solid #e2bf5a;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(226, 191, 90, 0.15);
+  color: #e2bf5a;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.deck-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(226, 191, 90, 0.3);
+}
+
+.deck-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(226, 191, 90, 0.4);
+}
+
+.deck-expanded {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  border: 1px solid #e2bf5a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: translateX(4px);
+  color: #e2bf5a;
+}
+
+.skill-icon {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 6px rgba(226, 191, 90, 0.3));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* כרטיס פעיל — עובר קדימה */
+.deck-card.active {
+  z-index: 5;
+  transform: scale(1.1);
+}

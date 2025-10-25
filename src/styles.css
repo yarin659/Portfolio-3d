@@ -2,7 +2,7 @@
 --bg: #0b0f18;
 --fg: #ffffff;
 --muted: #9aa3b2;
---accent: #00ffff; /* change to your brand color */
+--accent: #E2BF5A; /* change to your brand color */
 }
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
