@@ -8,6 +8,8 @@ const projects = [
     name: "EventLife",
     tech: "React • Spring Boot • AWS",
     media: "/media/eventlife.mp4",
+    link: "https://event-life123.netlify.app/"
+
   },
   {
     id: 2,
@@ -38,6 +40,7 @@ export default function Work() {
             onMouseLeave={() => setHovered(null)}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            onClick={() => window.open(proj.link, "_blank")}
           >
             <div className="thumb">
               {hovered === proj.id ? (
