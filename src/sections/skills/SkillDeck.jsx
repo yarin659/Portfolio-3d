@@ -35,16 +35,25 @@ const skillData = {
 export default function SkillDeck() {
   const [active, setActive] = useState(null);
 
+  // עוזר גם למובייל: לחיצה תפתח/תסגור, ובדסקטופ יש hover
+  const toggle = (category) =>
+    setActive((prev) => (prev === category ? null : category));
+
   return (
     <div className="deck-container">
       {Object.entries(skillData).map(([category, skills]) => {
         const isActive = active === category;
+
         return (
           <div
             key={category}
             className={`deck-card ${isActive ? "active" : ""}`}
             onMouseEnter={() => setActive(category)}
             onMouseLeave={() => setActive(null)}
+            onClick={() => toggle(category)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggle(category)}
           >
             {/* Front side */}
             <div className="deck-front">
@@ -57,9 +66,13 @@ export default function SkillDeck() {
                 {skills.map((s) => (
                   <div key={s.name} className="skill-item">
                     <img
-                      src={`/src/assets/icons/${s.icon}.svg`}
+                      src={`/icons/${s.icon}.svg`} // ← עבר ל-public/icons
                       alt={s.name}
                       className="skill-icon"
+                      onError={(e) => {
+                        // fallback קטן במקרה שקובץ חסר
+                        e.currentTarget.style.display = "none";
+                      }}
                     />
                     <span>{s.name}</span>
                   </div>
