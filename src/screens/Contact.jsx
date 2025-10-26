@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import Background from "../three/Background.jsx"; // הקוד שלך
+import Background from "../three/Background.jsx";
 import styled from "styled-components";
 
 const Contact = () => {

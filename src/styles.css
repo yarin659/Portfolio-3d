@@ -5,7 +5,8 @@
 --accent: #E2BF5A; /* change to your brand color */
 }
 * { box-sizing: border-box; }
-html, body, #root { height: 100%; }
+html, body, #root { height: auto; min-height: 100%;}
+
 body {
 margin: 0;
 background: var(--bg);
@@ -13,7 +14,12 @@ color: var(--fg);
 font-family: system-ui, Inter, Arial, Segoe UI;
 }
 
-.app { position: relative; height: 100%; }
+
+.app {
+  position: relative;
+  min-height: 100vh; /* רק המינימום, לא נעול */
+}
+
 .bg-canvas { position: fixed; inset: 0; z-index: 0; }
 
 .nav {
@@ -31,7 +37,15 @@ opacity: 1; text-decoration: underline; text-decoration-color: var(--accent);
 text-underline-offset: 6px;
 }
 
-.screen { height: 100vh; width: 100%; display: grid; place-items: center; padding: 6vw; position: relative; z-index: 1; }
+.screen {
+  min-height: 100vh; /* כל “עמוד” יקבל גובה מסך, אבל אפשר להמשיך מעבר */
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 6vw;
+  position: relative;
+  z-index: 1;
+}
 
 .hero h1 { font-size: clamp(40px, 10vw, 120px); line-height: .95; margin: 0 0 12px; letter-spacing: -0.02em; }
 .hero p { color: var(--muted); max-width: 60ch; }
@@ -137,4 +151,41 @@ text-underline-offset: 6px;
 
 .page-transition {
   pointer-events: none;
+}
+
+
+/* ====== FIX SCROLL & MOBILE LAYOUT WITHOUT BREAKING DESIGN ====== */
+
+/* מאפשר גלילה רגילה בדף */
+html, body {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+
+/* כל "screen" יאפשר גלילה פנימית ולא יחסום את שאר הדף */
+.screen {
+  min-height: 100vh !important;
+  height: auto !important;
+}
+
+/* מבטל מצב שבו רק אחד המסכים מוצג */
+.app {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+
+/* --- עיצוב רספונסיבי למסכים קטנים (טלפון) --- */
+@media (max-width: 768px) {
+  .work .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90% !important;
+    max-width: 500px !important;
+  }
 }

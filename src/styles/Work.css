@@ -1,0 +1,93 @@
+.work {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.work h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* === תצוגה רגילה (מסכים גדולים) === */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === כרטיס === */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.3s ease;
+}
+
+.thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meta {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  text-align: left;
+}
+
+.meta span {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.meta small {
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+/* === מובייל (טלפון) — תצוגת רשימה אנכית === */
+@media (max-width: 768px) {
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 1rem;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+  }
+
+  .projects-container::-webkit-scrollbar {
+    display: none; /* הסתרת פס גלילה */
+  }
+}

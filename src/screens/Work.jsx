@@ -1,7 +1,7 @@
+import "../styles/Work.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// רשימת פרויקטים לדוגמה (תוכל לשנות לשמות אמיתיים)
 const projects = [
   {
     id: 1,
@@ -9,7 +9,6 @@ const projects = [
     tech: "React • Spring Boot • AWS",
     media: "/media/eventlife.mp4",
     link: "https://event-life123.netlify.app/"
-
   },
   {
     id: 2,
@@ -31,7 +30,7 @@ export default function Work() {
   return (
     <section className="work">
       <h2>Projects</h2>
-      <div className="grid">
+      <div className="projects-container">
         {projects.map((proj) => (
           <motion.div
             key={proj.id}
@@ -40,7 +39,7 @@ export default function Work() {
             onMouseLeave={() => setHovered(null)}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            onClick={() => window.open(proj.link, "_blank")}
+            onClick={() => proj.link && window.open(proj.link, "_blank")}
           >
             <div className="thumb">
               {hovered === proj.id ? (
@@ -58,7 +57,7 @@ export default function Work() {
             <motion.div
               className="meta"
               animate={{
-                opacity: hovered === proj.id ? 1 : 0.7,
+                opacity: hovered === proj.id ? 1 : 0.85,
                 y: hovered === proj.id ? -4 : 0,
               }}
               transition={{ duration: 0.3 }}
