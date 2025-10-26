@@ -89,3 +89,25 @@
   z-index: 5;
   transform: scale(1.1);
 }
+
+
+.skill-icon {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+  transition: transform 0.2s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.2);
+}
+
+
+/* תיקון תאימות SVG באייפון ומובייל - בלי לפגוע בעיצוב */
+.skill-icon {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  image-rendering: -webkit-optimize-contrast;
+}

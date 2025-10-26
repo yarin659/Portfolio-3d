@@ -2,6 +2,7 @@
   padding: 4rem 2rem;
   text-align: center;
   color: white;
+  overflow-x: hidden; /* מונע גלילה אופקית כללית */
 }
 
 .work h2 {
@@ -69,22 +70,25 @@
   font-size: 0.85rem;
 }
 
-/* === מובייל (טלפון) — תצוגת רשימה אנכית === */
+/* === מובייל (טלפון) — תצוגת רשימה אנכית במרכז === */
 @media (max-width: 768px) {
   .projects-container {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0 1rem;
     align-items: center;
+    justify-content: center;
+    width: 100vw; /* מבטיח שהתוכן תופס רק את רוחב המסך */
+    margin: 0 auto;
+    padding: 0 1rem;
+    overflow-x: hidden; /* מבטל כל גלילה רוחבית */
   }
 
   .card {
-    width: 100%;
+    width: 90vw; /* רוחב רספונסיבי מלא (במקום פיקסלים) */
     max-width: 400px;
     height: 240px;
+    margin: 0 auto;
   }
 
   .projects-container::-webkit-scrollbar {
