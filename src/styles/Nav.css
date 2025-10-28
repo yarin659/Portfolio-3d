@@ -1,0 +1,170 @@
+:root {
+  --bg: #0b0f18;
+  --fg: #ffffff;
+  --accent: #e2bf5a;
+}
+
+/* ====== NAVBAR (GLASS EFFECT) ====== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 9999;
+
+  /* אפקט זכוכית יוקרתי */
+  background: rgba(11, 15, 24, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(226, 191, 90, 0.15);
+  transition: background 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ====== DESKTOP LINKS ====== */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+}
+
+/* ====== HAMBURGER ====== */
+.hamburger-btn {
+  display: none;
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10000;
+}
+.hamburger-btn span {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+.hamburger-btn span:nth-child(1) {
+  top: 9px;
+}
+.hamburger-btn span:nth-child(2) {
+  top: 16px;
+}
+.hamburger-btn span:nth-child(3) {
+  top: 23px;
+}
+
+.hamburger-btn.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 16px;
+}
+.hamburger-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 16px;
+}
+.hamburger-btn:hover span {
+  background: #f1d175;
+}
+
+/* ====== MOBILE DROPDOWN ====== */
+.mobile-dropdown {
+  width: 100%;
+  background: rgba(11, 15, 24, 0.25); /* 💎 שקיפות אחידה עם navbar */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 191, 90, 0.15);
+  transition: background 0.3s ease;
+}
+
+.mobile-dropdown-link {
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s;
+}
+.mobile-dropdown-link:hover,
+.mobile-dropdown-link.active {
+  color: var(--accent);
+  background: rgba(226, 191, 90, 0.08);
+  position: relative;
+}
+.mobile-dropdown-link:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger-btn {
+    display: block;
+  }
+  .navbar {
+    padding: 12px 20px;
+    background: rgba(11, 15, 24, 0.35); 
+  }
+}
