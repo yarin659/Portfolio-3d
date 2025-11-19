@@ -6,22 +6,19 @@ const projects = [
   {
     id: 1,
     name: "EventLife",
-    tech: "React • Spring Boot • AWS",
+    tech: "React • Spring Boot • PostgresSQL",
+    image: "/media/eventlife.jpg",
     media: "/media/eventlife.mp4",
     link: "https://event-life123.netlify.app/"
   },
+  
   {
     id: 2,
-    name: "Smart Budget Tracker",
-    tech: "React • DynamoDB • Cognito",
-    media: "/media/budget.mp4",
-  },
-  {
-    id: 3,
-    name: "AI Resume Analyzer",
-    tech: "Python • Flask • OpenAI API",
-    media: "/media/resume.mp4",
-  },
+    name: "Smart Budget Tracker (soon...)",
+    tech: "React • Springboot(Java) • PostgresSQL",
+    image: "/media/budget.jpg",
+    media: "/media/budget.mp4"
+  }
 ];
 
 export default function Work() {
@@ -30,6 +27,7 @@ export default function Work() {
   return (
     <section className="work">
       <h2>Projects</h2>
+
       <div className="projects-container">
         {projects.map((proj) => (
           <motion.div
@@ -42,16 +40,24 @@ export default function Work() {
             onClick={() => proj.link && window.open(proj.link, "_blank")}
           >
             <div className="thumb">
-              {hovered === proj.id ? (
-                <video
-                  src={proj.media}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="preview"
-                />
-              ) : null}
+
+              {/* תמונה תמיד קיימת */}
+              <img
+                src={proj.image}
+                alt={proj.name}
+                className="preview img-layer"
+              />
+
+              {/* וידאו תמיד קיים */}
+              <video
+                src={proj.media}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="preview video-layer"
+              />
+
             </div>
 
             <motion.div
