@@ -14,8 +14,8 @@ const projects = [
   
   {
     id: 2,
-    name: "Smart Budget Tracker (soon...)",
-    tech: "React • Springboot(Java) • PostgresSQL",
+    name: "Smart Budget Tracker",
+    tech: "React • Springboot(Java) • PostgresSQL • Docker",
     image: "/media/budget.jpg",
     media: "/media/budget.mp4"
   }
